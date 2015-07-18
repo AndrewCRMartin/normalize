@@ -1,4 +1,3 @@
-HOME = /home/bsm/martin
 COPT = -I$(HOME)/include
 LOPT = -L$(HOME)/lib
 CC = cc -ansi -pedantic -Wall
