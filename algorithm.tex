@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{a4}
+\usepackage{url}
+
+\begin{document}
+\section{Algorithm is as follows:}
+Given a set of datapoints $X$, a target mean, $\mu$, and target
+standard deviation, $\sigma$:
+
+\texttt{foreach datapoint $X_i$}
+
+\texttt{\{}
+
+\texttt{\ \ \ Calculate absolute $|z| = |(X_i - \mu) / \sigma|$}
+
+\texttt{\ \ \ Calculate probability $(p)$ of a value $(x > |z|)$}
+
+\texttt{\ \ \ Generate a random number $0\le r\le 1$}
+
+\texttt{\ \ \ if$(p \ge r)$ then place $X_i$ in the output set}
+
+\texttt{\}}
+
+\section{$p$ is calculated as follows:}
+\begin{equation}
+   D(x) = \frac{1}{2}\left[1 + 
+                     \mbox{erf}\left(\frac{x-\mu}{\sigma\sqrt{2}}\right)\right]
+\end{equation}
+\begin{equation}
+   D(x)  = \frac{1}{2}\left[1 + 
+                     \mbox{erf}\left(\frac{z}{\sqrt{2}}\right)\right]
+\end{equation}
+   So 
+\begin{equation}
+   p(|x-\mu| > |z|) = \left[1 + 
+                      \mbox{erf}\left(\frac{-z}{\sqrt{2}}\right)\right]
+\end{equation}
+
+This is taken from
+\url{http://mathworld.wolfram.com/NormalDistribution.html} and checked
+against \url{http://www.stat.wvu.edu/SRS/Modules/Normal/males.html}
+
+\end{document}
